@@ -1,0 +1,70 @@
+  
+ <body class="bg-light mt-4">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Alta Actores</h2>
+        <h1>{{nuevoProducto.comestible}}</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <app-tabla-paises [listaPaises]="listaPaises" (paisSeleccionado)="SeleccionarPais($event)"></app-tabla-paises>
+        </div>
+
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Alta</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Codigo</label>
+                <input type="text" class="form-control" id="firstName" [(ngModel)]="nuevoProducto.codigo" [ngModelOptions]="{standalone: true}" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Descripcion</label>
+                <input type="text" class="form-control" id="lastName" [(ngModel)]="nuevoProducto.descripcion" [ngModelOptions]="{standalone: true}" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Precio</label>
+              <input type="number" class="form-control" id="email" [(ngModel)]="nuevoProducto.precio" [ngModelOptions]="{standalone: true}" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Stock</label>
+              <input type="number" class="form-control" id="address"[(ngModel)]="nuevoProducto.stock"  [ngModelOptions]="{standalone: true}" required>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="address">Comestible</label>
+                 <select name="select" [(ngModel)]="nuevoProducto.comestible" class="form-control" required>
+                    <option value="true">Si</option>
+                    <option value="false">No</option>   
+                  </select>
+            </div>
+
+            <label for="country">Pais Seleccionado</label>
+            <div class="table table-success">
+              <div class="row" >
+                <div class="col mt-3 mb-3">
+                  <div>
+                    <h6 class="my-0">{{paisSeleccionado.name}}</h6>
+                    <small class="text-muted">{{paisSeleccionado.capital}}</small>
+                  </div>
+                </div>
+                <div class="col-2 mt-3 mb-3">
+                  <span class="text-muted"><img style="width: 50px;" src="{{paisSeleccionado.flag}}"></span>
+                </div>      
+              </div>
+            </div>
+            
+
+            <button  (click)="AgregarProducto()" class="btn btn-success btn-lg btn-block" type="button">Agregar</button>
+          </form>
+
+          <!--app-actor-listado [listaActores]="listaActores"></app-actor-listado-->
+        </div>
+      </div>
+    </div>
+</body>

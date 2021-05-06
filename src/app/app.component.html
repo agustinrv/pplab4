@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-5" >
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/bienvenida">Bienvenido<span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/altaproducto">Alta Producto<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    
+    
+  </div>
+
+  <div *ngIf="usuarioLogin == false || usuarioLogin ==null; else salir">
+    <a class="nav-item"><button class="btn btn-outline-primary" routerLink="login">Login</button></a>
+  </div>
+
+  <ng-template #salir>
+      <a class="nav-item"><button class="btn btn-sm btn-outline-danger" (click)="LogOut()">Log Out</button></a>
+  </ng-template>
+</nav>
+
+
+<router-outlet></router-outlet>
